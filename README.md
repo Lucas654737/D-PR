@@ -10,7 +10,7 @@ plugin que remove silêncios de vídeos com IA, com app desktop (Electron) e pai
 ## 📥 Instalação (usuário final)
 
 1. Baixe a versão mais recente:
-   **[`DecupagemPremiere-win-Setup.exe`](https://github.com/Lucas654737/D-PR/releases/latest/download/DecupagemPremiere-win-Setup.exe)** (~129 MB)
+   [`DecupagemPremiere-win-Setup.exe`](https://github.com/Lucas654737/D-PR/releases/latest/download/DecupagemPremiere-win-Setup.exe) (~86 MB)
 2. **Duplo clique** — instalação por usuário (`%LocalAppData%`), **não precisa de administrador**
 3. O app abre num **assistente de primeira execução**:
    - verifica o que já existe no seu PC (FFmpeg, Premiere, espaço em disco, internet)
@@ -37,17 +37,28 @@ plugin que remove silêncios de vídeos com IA, com app desktop (Electron) e pai
 
 ---
 
-## 🔄 Atualizar os arquivos (mantenedor)
+## 📝 Versão 1.0.6 — Novidades
+
+- **Interface redesenhada**: design profissional com vidro transparente (glassmorphism)
+- **Paleta de cores**: ciano como acento principal, tons neutros escuros
+- **Hierarquia visual**: título monumental, frase clara, ação visível
+- **Cards com efeito hover**: elevam suavemente, bordas mudam de cor
+- **Tipografia**: Inter (corpo), Outfit (títulos), JetBrains Mono (códigos/timecodes)
+
+---
+
+## 🔧 Atualizar os arquivos (mantenedor)
 
 ```powershell
 # 1. build do instalador (no repo do código, pasta standalone/)
-powershell scripts\build-installer.ps1 -Versao 1.0.1
+powershell scripts\build-all.ps1 -Versao 1.0.6
 
 # 2. publicar
-gh release upload 1.0.1 `
-  "dist-vpk\DecupagemPremiere-win-Setup.exe" "dist-vpk\RELEASES" `
-  "dist-vpk\DecupagemPremiere-1.0.1-full.nupkg" "dist-vpk\assets.win.json" `
-  "dist-vpk\releases.win.json" -R Lucas654737/D-PR --clobber
+gh release upload 1.0.6 `
+  "decupagem-premiere\standalone\installer\DecupagemPremiere-win-Setup.exe" `
+  "decupagem-premiere\standalone\dist-vpk\DecupagemPremiere-1.0.6-full.nupkg" `
+  "decupagem-premiere\standalone\dist-vpk\assets.win.json" `
+  "decupagem-premiere\standalone\dist-vpk\releases.win.json" -R Lucas654737/D-PR --clobber
 ```
 
 O `manifest.json` (backend) é atualizado quando a versão do **servidor** muda —
@@ -55,10 +66,10 @@ veja o passo a passo em `server/release/README-PUBLISH.md` no repositório do c�
 
 ---
 
-## 🧪 Verificação de integridade
+## 🛡️ Verificação de integridade
 
 Todos os downloads são conferidos por **SHA256** antes de serem instalados.
-O hash oficial de cada versão está no `manifest.json` do próprio release.
+O hash oficial de cada versão está no `releases.win.json` deste repositório.
 
 ---
 
